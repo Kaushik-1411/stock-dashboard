@@ -45,6 +45,7 @@ public class RecommendationService {
                 .shortMA(shortMA)
                 .longMA(longMA)
                 .build();
+
     }
 
     // Simple Moving Average
