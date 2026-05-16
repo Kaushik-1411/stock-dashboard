@@ -16,6 +16,7 @@ public class PortfolioService {
     private final PortfolioRepository portfolioRepository;
     private final StockService stockService;
 
+    // Fetch all holdings for a user and enrich with live price + P&L
     public List<Portfolio> getPortfolio(String userId){
         List<Portfolio> holdings = portfolioRepository.findByUserId(userId);
 
@@ -41,11 +42,12 @@ public class PortfolioService {
          portfolioRepository.deleteById(id);
     }
 
+    // Summary stats — total invested, current value, overall P&L
     public PortfolioSummary getSummary(String userId){
         List<Portfolio> holdings = getPortfolio(userId);
 
         double totalInvested = holdings.stream()
-                .mapToDouble(h -> h.getBuyPrice() * h.getQantity())
+                .mapToDouble(h -> h.getBuyPrice() * h.getQuantity())
                 .sum();
 
         double currentValue = holdings.stream()
@@ -57,9 +59,9 @@ public class PortfolioService {
 
     // Inner record — no need for a separate file
     public record PortfolioSummary(
-            double totalInvested;
-            double currentValue;
-            double profitLoss;
+            double totalInvested,
+            double currentValue,
+            double profitLoss
     ) {}
 
 
