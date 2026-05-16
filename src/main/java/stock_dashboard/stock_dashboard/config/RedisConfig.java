@@ -15,6 +15,7 @@ public class RedisConfig {
         return RedisCacheManager.builder(factory)
                 .withInitialCacheConfigurations(Map.of(
                         "stockPrice",     defaults.entryTtl(Duration.ofMinutes(2)),
+                        "stockHistory", defaults.entryTtl(Duration.ofMinutes(10)),
                         "recommendation", defaults.entryTtl(Duration.ofMinutes(5))
                 ))
                 .build();
