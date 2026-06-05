@@ -16,7 +16,10 @@ public class RedisConfig {
                 .withInitialCacheConfigurations(Map.of(
                         "stockPrice",     defaults.entryTtl(Duration.ofMinutes(2)),
                         "stockHistory", defaults.entryTtl(Duration.ofMinutes(10)),
-                        "recommendation", defaults.entryTtl(Duration.ofMinutes(5))
+                        "recommendation", defaults.entryTtl(Duration.ofMinutes(5)),
+                        "topGainers",     defaults.entryTtl(Duration.ofMinutes(5)),
+                        "topLosers",      defaults.entryTtl(Duration.ofMinutes(5)),
+                        "mostActive",     defaults.entryTtl(Duration.ofMinutes(5))
                 ))
                 .build();
     }
