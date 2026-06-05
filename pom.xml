@@ -89,6 +89,13 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
+<!--        yahoo finance-->
+        <dependency>
+            <groupId>com.yahoofinance-api</groupId>
+            <artifactId>YahooFinanceAPI</artifactId>
+            <version>3.17.0</version>
+        </dependency>
+
         <!-- HTTP client for Alpha Vantage -->
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->
