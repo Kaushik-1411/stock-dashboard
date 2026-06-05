@@ -4,6 +4,8 @@ import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+//import io.lettuce.core.dynamic.annotation.Value;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
@@ -12,11 +14,17 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
+    @Value("${jwt.secret}")
     private String secret;
 
     private static final long EXPIRY_MS = 1000L * 60 * 60 * 24; // 24 hours
 
-    private Key getKey(){
+//    private Key getKey(){
+//        return Keys.hmacShaKeyFor(secret.getBytes());
+//    }
+
+    private Key getKey() {
+        System.out.println("JWT Secret = " + secret);
         return Keys.hmacShaKeyFor(secret.getBytes());
     }
 

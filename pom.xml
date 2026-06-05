@@ -64,6 +64,14 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- JWT JSON serializer/deserializer -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
+        </dependency>
+
         <!-- JPA + H2 (swap for PostgreSQL later) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -125,6 +133,8 @@
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
         </dependency>
+
+
 	</dependencies>
 
 	<build>
